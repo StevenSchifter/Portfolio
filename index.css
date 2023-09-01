@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* General styles */
+
+* {
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+header, footer {
+    text-align: center;
+}
+
+#mainHeader {
+    color: #ffffff;
+    background-color: #0000ff;
+    padding-bottom: 1px;
+}
+
+#mainHeaderText {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Dark mode styles */
+
+.darkMode {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.darkTableCellBorder {
+    border-bottom: 1px solid #ffffff;
+}
+
+.darkLink {
+    color: #00ffff;
+    &:visited {
+        color: #ff00ff;
+    }
+}
+
+#modeSwitch {
+    background-color: #bdbdbd;
+    border: 3px solid #ffda00;
+    border-radius: 5px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    padding: 0.4rem;
+    width: 10rem;
+}
+
+/* Centering dark mode button inspired by https://www.stechies.com/center-css-button/#2 */
+#modeSwitchContainer {
+    width: 10rem;
+    height: 4rem;
+    margin: auto;
+}
+
+/* Table styles */
+
+table {
+    border-collapse: collapse;
+    border: none;
+    margin: 1em auto;
+}
+
+th, td {
+    padding: 0.3rem 0.5rem;
+}
+
+th {
+    padding-top: 2rem;
+    border-bottom: 1px solid #000000;
+    font-style: italic;
+    letter-spacing: 0.1rem;
+    text-align: left;
+    text-transform: uppercase;
+}

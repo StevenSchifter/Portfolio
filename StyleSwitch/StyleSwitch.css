@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.darkmode {
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.darklink {
+    color: #00FFFF;
+}
+
+.darklink:visited {
+    color: #FF00FF;
+}

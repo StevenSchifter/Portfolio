@@ -1,0 +1,45 @@
+body
+{
+    background-color: #000040;
+}
+h1, label
+{
+    color: white;
+    font-weight: bold;
+}
+input
+{
+    background-color: #555555;
+    border: none;
+    border-radius: 9px;
+    color: #fbdc13;
+    padding: 6px;
+}
+label, input
+{
+    font-size: large;
+}
+#output
+{
+    color: gold;
+    font-size: x-large;
+}
+#submitButton
+{
+    background-color: gold;
+    border: none;
+    border-radius: 9px;
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+    padding-bottom: 9px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 9px;
+}
+*
+{
+    font-family: Consolas, monospace;
+    margin-left: 20px;
+    margin-top: 30px;
+}

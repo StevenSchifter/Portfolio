@@ -1,0 +1,3 @@
+01,I'm pretty good at COBOL.
+02,COBOL isn't so difficult once you get experience with it.
+03,This is the last record of my input file.
