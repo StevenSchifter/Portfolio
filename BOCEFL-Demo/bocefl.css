@@ -1,96 +1,62 @@
 @charset "UTF-8";
-
-/* Site-wide font */
+/* Site-wide styles */
 * {
+    box-sizing: border-box;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
-
-/* Border for development (disable in production) */
-#main-header,
-#main-section,
-#sidebar,
-#main-footer {
-    /* border: 1px solid #cccccc; */
-}
-
 /* Dark mode styles */
 .dark-body {
     color: #eeeeee;
     background-color: #111111;
 }
-
 .dark-link {
     color: #00ddff;
     &:visited {
         color: #ff00dd;
     }
 }
-
-/* Grid styles */
+/* Body styles */
 body {
-    padding: 10px;
-    box-sizing: border-box;
-
     display: grid;
-    grid-template-rows: 75px 1fr 1fr 75px;
-    grid-template-columns: repeat(3, 1fr);
+    
     gap: 10px;
 }
-
 /* Main header styles */
 #main-header {
     background-color: #006600;
     color: #ffff00;
     font-weight: bold;
+    line-height: 72px;
 
-    grid-column-start: 1;
-    grid-column-end: 4;
+    grid-row: 1;
     
     display: grid;
     grid-template-rows: 100%;
-    grid-template-columns: 54px 6fr 2fr;
 }
-
 .star {
     width: 36px;
-    padding: 18px;
-
+    margin: 18px;
+    
     grid-column: 1;
 }
-
 #main-header-text {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 0px;
-    
     grid-column: 2;
 }
-
 #mode-switch {
     font-family: 'Segoe UI Emoji Regular';
+    text-align: right;
+    padding-right: 18px;
     cursor: pointer;
-    padding: 1rem;
     
-    grid-column: 4;
+    grid-column: 3;
 }
-
 /* Main section styles */
 #main-section {
     padding: 10px;
-
-    grid-row-start: 2;
-    grid-row-end: span 2;
-    grid-column-start: 1;
-    grid-column-end: 3;
 }
-
 /* Sidebar styles */
 #sidebar {
     padding: 10px;
-
-    grid-row-start: 2;
-    grid-row-end: span 2;
 }
 
 #sidebar h3 {
@@ -98,30 +64,42 @@ body {
 
 #sidebar nav, #sidebar p {
 }
-
 /* Main footer styles */
 #main-footer {
     text-align: center;
     font-size: 18pt;
-
-    grid-column: 1 / span 3;
 }
-
 /* Responsive styles */
+/* TODO: Make smallest font size work, or else make the font size itself responsive (vw) */
+@media only screen and (max-width:375px) {
+    #main-header {
+        font-size: 0.75rem;
 
-@media screen and (max-width:760px) {
-    body {
-        padding: 10px;
-        box-sizing: border-box;
-
-        display: grid;
-        grid-template-rows: 75px 1fr 0.5fr 75px;
-        grid-template-columns: 100%;
-        gap: 10px;
-    }
+        grid-template-columns: 72px 1fr 72px;
+    }   
+}
+@media only screen and (max-width:740px) {
     #main-header {
         font-size: 1rem;
-        grid-row: 1;
+
+        grid-template-columns: 72px 1fr 72px;
+    }
+}
+@media only screen and (min-width:741px) {
+    #main-header {
+        font-size: 2rem;
+
+        grid-template-columns: 72px 1fr 144px;
+    }
+}
+@media only screen and (max-width:740px) {
+    body {
+        width: 100%;
+
+        grid-template-rows: 72px 1fr 0.5fr 72px;
+        grid-template-columns: 100%;
+    }
+    #main-header {
         grid-column: 1;
     }
     #main-section {
@@ -137,37 +115,29 @@ body {
         grid-column: 1;
     }
 }
-
-@media screen and (max-width:368px) {
-    #main-header {
-        font-size: 0.75rem;
-    
-		grid-template-rows: 100%;
-		grid-template-columns: 27px 7fr 2fr;
+@media only screen and (min-width:741px) {
+    body {
+        width: 90%;
+        margin: auto;
+        
+        grid-template-rows: 72px 1fr 1fr 72px;
+        grid-template-columns: repeat(3, 1fr);
     }
-	#main-header-text {
-		/* padding: 18px; */
-    
-		/* grid-row: 1; */
-	}
-	.star {
-		width: 75%;
-	}
-	#mode-switch {
-		/* grid-row: 2; */
-	}
-}
-
-@media screen and (min-width:369px) and (max-width:838px) {
     #main-header {
-        font-size: 1rem;
-		/* line-height: 1rem; */
+        grid-column-start: 1;
+        grid-column-end: 4;
     }
-}
-
-@media screen and (min-width:838px) {
-    #main-header {
-        font-size: 2rem;
-		line-height: 2rem;
+    #main-section {
+        grid-row-start: 2;
+        grid-row-end: span 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    #sidebar {
+        grid-row-start: 2;
+        grid-row-end: span 2;
+    }
+    #main-footer {
+        grid-column: 1 / span 3;
     }
 }
