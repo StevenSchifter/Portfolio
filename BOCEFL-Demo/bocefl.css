@@ -17,8 +17,9 @@
 }
 /* Body styles */
 body {
-    display: grid;
+    margin: 0px;
     
+    display: grid;
     gap: 10px;
 }
 /* Main header styles */
@@ -35,7 +36,7 @@ body {
 }
 .star {
     width: 36px;
-    margin: 18px;
+    margin: 18px 9px;
     
     grid-column: 1;
 }
@@ -45,7 +46,7 @@ body {
 #mode-switch {
     font-family: 'Segoe UI Emoji Regular';
     text-align: right;
-    padding-right: 18px;
+    padding-right: 9px;
     cursor: pointer;
     
     grid-column: 3;
@@ -70,26 +71,25 @@ body {
     font-size: 18pt;
 }
 /* Responsive styles */
-/* TODO: Make smallest font size work, or else make the font size itself responsive (vw) */
 @media only screen and (max-width:375px) {
     #main-header {
         font-size: 0.75rem;
 
-        grid-template-columns: 72px 1fr 72px;
+        grid-template-columns: 54px 1fr 63px;
     }   
 }
-@media only screen and (max-width:740px) {
+@media only screen and (min-width:740px) {
     #main-header {
         font-size: 1rem;
 
-        grid-template-columns: 72px 1fr 72px;
+        grid-template-columns: 54px 1fr 63px;
     }
 }
 @media only screen and (min-width:741px) {
     #main-header {
         font-size: 2rem;
 
-        grid-template-columns: 72px 1fr 144px;
+        grid-template-columns: 54px 1fr 144px;
     }
 }
 @media only screen and (max-width:740px) {
