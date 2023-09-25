@@ -4,23 +4,79 @@
     box-sizing: border-box;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
-/* Dark mode styles */
-.dark-body {
-    color: #eeeeee;
-    background-color: #111111;
-}
-.dark-link {
-    color: #00ddff;
-    &:visited {
-        color: #ff00dd;
-    }
-}
-/* Body styles */
+/* Default styles */
 body {
+    color: #000000;
+    background-color: #B9B9B9;
     margin: 0px;
     
     display: grid;
     gap: 10px;
+}
+a {
+    color: #000085;
+    &:visited {
+        color: #450045;
+    }
+}
+.info {
+    background-color: rgba(0, 102, 0, 0.1);
+    padding: 18px;
+    border-radius: 9px;
+    margin: 18px;
+}
+.info h2 {
+    /* text-shadow: #a0a0a0 3px 3px 3px; */
+}
+/* Dark mode styles */
+body.dark-scheme {
+    color: #F1F1F1;
+    background-color: #1F1F1F;
+}
+a.dark-scheme {
+    color: #00b4ff;
+    &:visited {
+        color: #ff81ff;
+    }
+}
+.info.dark-scheme {
+    background-color: rgba(0, 72, 0, 0.3);
+}
+.info h2.dark-scheme {
+    /* text-shadow: #090909 3px 3px 3px; */
+}
+#scheme-toggle-button {
+    border: 2px solid #1F1F1F;
+    border-radius: 9px;
+    width: fit-content;
+    height: fit-content;
+    margin: 18px;
+}
+#scheme-toggle-button.dark-scheme {
+    border: 2px solid #F1F1F1;
+}
+#scheme-toggle-symbol {
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid #999999;
+    background-color: #ffffff !important;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin: 10px;
+}
+#scheme-toggle-symbol-L {
+    background-color: #000000 !important;
+    width: 8px;
+    height: 16px;
+    border-radius: 8px 0px 0px 8px;
+    margin: 0px;
+}
+#scheme-toggle-text {
+    display: inline;
+    line-height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 /* Main header styles */
 #main-header {
@@ -28,20 +84,16 @@ body {
     color: #ffff00;
     font-weight: bold;
     line-height: 72px;
+    text-shadow: #090909 5px 5px 5px;
 
     grid-row: 1;
-    
-    display: grid;
-    grid-template-rows: 100%;
-}
-.star {
-    width: 36px;
-    margin: 18px 9px;
-    
-    grid-column: 1;
 }
 #main-header-text {
-    grid-column: 2;
+    /* Style for central alignment depending on background image */
+    /* width: 100%; */
+    /* text-align: center; */
+    /* Style for left alignment depending on background image */
+    margin-left: 18px;
 }
 #mode-switch {
     font-family: 'Segoe UI Emoji Regular';
@@ -62,48 +114,33 @@ body {
     text-align: center;
     font-size: 18pt;
 }
-/* Responsive header font and grid styles */
-@media only screen and (max-width:330px) {
-    #main-header {
-        font-size: 0.8rem;
-
-        grid-template-columns: 54px 1fr 45px;
-    }   
-}
-@media only screen and (min-width:375px) {
+/* Responsive header styles */
+@media only screen and (max-width:299px) {
     #main-header {
         font-size: 1rem;
-
-        grid-template-columns: 54px 1fr 54px;
     }   
 }
-@media only screen and (min-width:400px) {
+@media only screen and (min-width:300px) {
     #main-header {
         font-size: 1.2rem;
-
-        grid-template-columns: 54px 1fr 72px;
     }
 }
 @media only screen and (min-width:480px) {
     #main-header {
         font-size: 1.5rem;
-
-        grid-template-columns: 54px 1fr 81px;
     }
 }
 @media only screen and (min-width:620px) {
     #main-header {
         font-size: 2rem;
-
-        grid-template-columns: 54px 1fr 108px;
     }
 }
 /* Responsive body width and grid styles */
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:779px) {
     body {
-        width: 100%;
+        /* width: 100%; */
 
-        grid-template-rows: 72px 1fr 0.5fr 72px;
+        grid-template-rows: 72px 1fr 0.1fr 0.05fr;
         grid-template-columns: 100%;
     }
     #main-header {
@@ -122,12 +159,12 @@ body {
         grid-column: 1;
     }
 }
-@media only screen and (min-width:701px) {
+@media only screen and (min-width:780px) {
     body {
-        width: 90%;
-        margin: auto;
+        /* width: 90%; */
+        /* margin: auto; */
         
-        grid-template-rows: 72px 1fr 1fr 72px;
+        grid-template-rows: 72px 1fr 0.1fr 0.05fr;
         grid-template-columns: repeat(3, 1fr);
     }
     #main-header {

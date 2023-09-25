@@ -1,42 +1,50 @@
-var inDarkMode = 0;
-
-function toggleMode()
-{
-    inDarkMode = 1 - inDarkMode;
-    setMode(inDarkMode);
-}
-
-function setMode(myDarkMode)
-{
-    if(myDarkMode == 1)
-    {
-        document.querySelector("body").classList.add("dark-body");
-        // Multi-element style setting code borrowed from https://stackoverflow.com/a/21319538
-        links = document.querySelectorAll("a");
-        for(var a = 0; a < links.length; ++a)
-        {
-            links[a].classList.add("dark-link");
-        }
-    }
-    else if(myDarkMode == 0)
-    {
-        document.querySelector("body").classList.remove("dark-body");
-        links = document.querySelectorAll("a");
-        for(var a = 0; a < links.length; ++a)
-        {
-            links[a].classList.remove("dark-link");
-        }
-    }
-}
-
-// Dark mode detection code borrowed from https://flaviocopes.com/javascript-detect-dark-mode/
+// Detect dark scheme preference or OS dark mode setting
 function detectDarkMode()
 {
-    if(window.matchMedia)
+    // First check local storage for dark scheme preference
+    if (localStorage.getItem("usingDarkScheme") === "true")
     {
-        if(window.matchMedia('(prefers-color-scheme: dark)').matches)
-        {
-            toggleMode();
-        }
+        toggleScheme();
+    }
+    
+    // If no preference was found, check OS dark mode setting and use that to set scheme and preference
+    // Media-matching code borrowed from https://flaviocopes.com/javascript-detect-dark-mode/
+    else if (localStorage.getItem("usingDarkScheme") === null && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    {
+        toggleScheme();
+    }
+}
+
+// Switch between light and dark schemes 
+function toggleScheme()
+{
+    // Add or remove the dark scheme CSS class
+    document.body.classList.toggle("dark-scheme");
+    document.querySelector("#scheme-toggle-button").classList.toggle("dark-scheme");
+    // Multi-element style setting code borrowed from https://stackoverflow.com/a/21319538
+    links = document.querySelectorAll("a");
+    for(var a = 0; a < links.length; ++a)
+    {
+        links[a].classList.toggle("dark-scheme");
+    }
+    infos = document.querySelectorAll(".info")
+    for (var i = 0; i < infos.length; ++i)
+    {
+        infos[i].classList.toggle("dark-scheme");
+    }
+    info_headers = document.querySelectorAll(".info h2");
+    for (var ih = 0; ih < info_headers.length; ++ih)
+    {
+        info_headers[ih].classList.toggle("dark-scheme");
+    }
+    
+    // Set dark scheme preference in local storage
+    if (document.body.classList.contains("dark-scheme"))
+    {
+        localStorage.setItem("usingDarkScheme", "true");
+    }
+    else
+    {
+        localStorage.setItem("usingDarkScheme", "false");
     }
 }

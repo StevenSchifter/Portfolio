@@ -19,11 +19,15 @@
     <body onload="detectDarkMode()">
         <!-- Header -->
         <header id="main-header">
-            <img src="BahaiStar36px.png" class="star"> <span id="main-header-text">Bahá’ís of Orange County East</span>
-            <span id="mode-switch" onclick="toggleMode()">☀/🌙</span>
+            <div id="main-header-text">Bahá’ís of Orange County East</div>
         </header>
         <!-- Main Section -->
         <section id="main-section">
+            <div id="scheme-toggle-button" onclick="toggleScheme()">
+                <div id="scheme-toggle-symbol"><div id="scheme-toggle-symbol-L"></div></div>
+                <span id="scheme-toggle-text">Light/Dark Mode</span>
+            </div>
+            <!-- <p><button onclick="toggleScheme()" type="button">Toggle Light/Dark Mode</button></p> -->
             <article class="info">
 				<h2> What is the Bahá’í Faith?</h2>
                 <p>The spiritual teachings of the Bahá’í Faith inspire us to form deep and diverse relationships and build communities that nurture the well-being of all.</p>
