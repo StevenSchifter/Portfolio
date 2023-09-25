@@ -1,7 +1,6 @@
 function detectDarkMode()
 {
-    const usingDarkScheme = localStorage.getItem("usingDarkScheme");
-    if (usingDarkScheme == "true")
+    if (localStorage.getItem("usingDarkScheme") === "true")
     {
         document.body.classList.add("dark-scheme");
     }
@@ -15,7 +14,7 @@ function toggleScheme()
     
     if (document.body.classList.contains("dark-scheme"))
     {
-        let selectedDarkScheme = "true";
+        selectedDarkScheme = "true";
     }
     
     localStorage.setItem("usingDarkScheme", selectedDarkScheme);
