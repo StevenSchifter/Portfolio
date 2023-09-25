@@ -1,14 +1,24 @@
 @charset "UTF-8";
 
-.darkmode {
+/* Default scheme */
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+a {
+    color: #0000CC;
+    &:visited {
+        color: #CC00CC;
+    }
+}
+/* Dark scheme */
+body.dark-scheme {
     color: #FFFFFF;
     background-color: #000000;
 }
-
-.darklink {
+a.dark-scheme {
     color: #00FFFF;
-}
-
-.darklink:visited {
-    color: #FF00FF;
+    &:visited {
+        color: #FF00FF;
+    }
 }
