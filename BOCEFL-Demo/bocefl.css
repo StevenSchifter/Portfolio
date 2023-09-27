@@ -26,7 +26,8 @@ a {
     margin: 18px;
 }
 .info h2 {
-    /* text-shadow: #a0a0a0 3px 3px 3px; */
+    border-bottom: 1px solid #000000;
+    padding-bottom: 9px;
 }
 /* Dark mode styles */
 body.dark-scheme {
@@ -43,7 +44,7 @@ a.dark-scheme {
     background-color: rgba(0, 72, 0, 0.3);
 }
 .info h2.dark-scheme {
-    /* text-shadow: #090909 3px 3px 3px; */
+    border-bottom: 1px solid #F1F1F1;
 }
 #scheme-toggle-button {
     border: 2px solid #1F1F1F;
@@ -63,7 +64,7 @@ a.dark-scheme {
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    margin: 10px;
+    margin: 1rem;
 }
 #scheme-toggle-symbol-L {
     background-color: #000000 !important;
@@ -74,65 +75,59 @@ a.dark-scheme {
 }
 #scheme-toggle-text {
     display: inline;
-    line-height: 40px;
     vertical-align: middle;
-    margin-right: 10px;
+    font-size: 1rem;
+    margin-right: 1rem;
 }
 /* Main header styles */
 #main-header {
-    background-color: #006600;
+    /* background: #006600; */
+    background: #006600 url("test-bg.png") top left no-repeat;
+    /* Background sizing idea borrowed from https://stackoverflow.com/a/19945042 */
+    background-size: cover;
     color: #ffff00;
     font-weight: bold;
-    line-height: 72px;
-    text-shadow: #090909 5px 5px 5px;
-
-    grid-row: 1;
 }
 #main-header-text {
     /* Style for central alignment depending on background image */
     /* width: 100%; */
     /* text-align: center; */
     /* Style for left alignment depending on background image */
-    margin-left: 18px;
-}
-#mode-switch {
-    font-family: 'Segoe UI Emoji Regular';
-    cursor: pointer;
-    
-    grid-column: 3;
+    margin-left: 3vmin;
 }
 /* Main section styles */
 #main-section {
-    padding: 10px;
+    /* padding: 10px; */
 }
 /* Sidebar styles */
 #sidebar {
     padding: 10px;
+    margin: 18px;
 }
 /* Main footer styles */
 #main-footer {
     text-align: center;
-    font-size: 18pt;
+    font-size: 1rem;
 }
 /* Responsive header styles */
 @media only screen and (max-width:299px) {
     #main-header {
-        font-size: 1rem;
+        font-size: 6vmin;
     }   
 }
 @media only screen and (min-width:300px) {
     #main-header {
-        font-size: 1.2rem;
+        font-size: 6vmin;
     }
 }
 @media only screen and (min-width:480px) {
     #main-header {
-        font-size: 1.5rem;
+        font-size: 5vmin;
     }
 }
 @media only screen and (min-width:620px) {
     #main-header {
-        font-size: 2rem;
+        font-size: 5vmin;
     }
 }
 /* Responsive body width and grid styles */
@@ -140,10 +135,13 @@ a.dark-scheme {
     body {
         /* width: 100%; */
 
-        grid-template-rows: 72px 1fr 0.1fr 0.05fr;
+        grid-template-rows: 10vh 1fr 0.1fr 10vh;
         grid-template-columns: 100%;
     }
     #main-header {
+        line-height: 10vh;
+        text-shadow: #090909 2px 2px 2px;
+        
         grid-column: 1;
     }
     #main-section {
@@ -164,12 +162,14 @@ a.dark-scheme {
         /* width: 90%; */
         /* margin: auto; */
         
-        grid-template-rows: 72px 1fr 0.1fr 0.05fr;
+        grid-template-rows: 15vh 1fr 0.1fr 10vh;
         grid-template-columns: repeat(3, 1fr);
     }
     #main-header {
-        grid-column-start: 1;
-        grid-column-end: 4;
+        line-height: 15vh;
+        text-shadow: #090909 3px 3px 3px;
+
+        grid-column: 1 / span 3;
     }
     #main-section {
         grid-row-start: 2;
