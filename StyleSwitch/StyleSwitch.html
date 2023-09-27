@@ -15,7 +15,10 @@
         <title>Style Switch Example</title>
     </head>
     <body onload="detectDarkMode()">
-        <p><button onclick="toggleScheme()" type="button">Switch Styles</button></p>
-        <p><a href="#">Test Link</a></p>
+        <div id="scheme-toggle-button" onclick="toggleScheme()">
+            <div id="scheme-toggle-symbol"><div id="scheme-toggle-symbol-L"></div></div>
+            <span id="scheme-toggle-text">Light/Dark Mode</span>
+        </div>
+        <div id="test-link"><a href="#">Test Link</a></div>
     </body>
 </html>
