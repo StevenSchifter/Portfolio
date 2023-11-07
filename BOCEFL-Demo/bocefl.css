@@ -2,7 +2,18 @@
 /* Site-wide styles */
 * {
     box-sizing: border-box;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: "Atkinson Hyperlegible";
+}
+@font-face {
+    font-family: "Atkinson Hyperlegible";
+    src: url("Atkinson-Hyperlegible-Regular-102.woff")
+    format('woff');
+}
+@font-face {
+    font-family: "Atkinson Hyperlegible";
+    src: url("Atkinson-Hyperlegible-Bold-102.woff")
+    format('woff');
+    font-weight: bold;
 }
 /* Default styles */
 body {
@@ -94,6 +105,7 @@ a.dark-scheme {
     font-size: 6vmin;
     color: #00b4ff;
     font-weight: bold;
+    /* font-family: 'Atkinson-Hyperlegible-Bold-102.woff'; */
     /* Style for central alignment depending on background image */
     /* width: 100%; */
     /* text-align: center; */
