@@ -105,16 +105,7 @@ a.dark-scheme {
     font-size: 6vmin;
     color: #00b4ff;
     font-weight: bold;
-    /* font-family: 'Atkinson-Hyperlegible-Bold-102.woff'; */
-    /* Style for central alignment depending on background image */
-    /* width: 100%; */
-    /* text-align: center; */
-    /* Style for left alignment depending on background image */
     margin-left: 3vmin;
-}
-/* Main section styles */
-#main-section {
-    /* padding: 10px; */
 }
 /* Sidebar styles */
 #sidebar {
@@ -126,32 +117,9 @@ a.dark-scheme {
     text-align: center;
     font-size: 1rem;
 }
-/* Responsive header styles */
-@media only screen and (max-width:299px) {
-    #main-header {
-        /* font-size: 6vmin; */
-    }   
-}
-@media only screen and (min-width:300px) {
-    #main-header {
-        /* font-size: 6vmin; */
-    }
-}
-@media only screen and (min-width:480px) {
-    #main-header {
-        /* font-size: 5vmin; */
-    }
-}
-@media only screen and (min-width:620px) {
-    #main-header {
-        /* font-size: 5vmin; */
-    }
-}
 /* Responsive body width and grid styles */
 @media only screen and (max-width:779px) {
     body {
-        /* width: 100%; */
-
         grid-template-rows: 12vh 1fr 0.1fr 10vh;
         grid-template-columns: 100%;
     }
@@ -176,9 +144,6 @@ a.dark-scheme {
 }
 @media only screen and (min-width:780px) {
     body {
-        /* width: 90%; */
-        /* margin: auto; */
-        
         grid-template-rows: 18vh 1fr 0.1fr 10vh;
         grid-template-columns: repeat(3, 1fr);
     }
