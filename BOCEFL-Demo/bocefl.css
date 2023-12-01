@@ -8,12 +8,14 @@
     font-family: "Atkinson Hyperlegible";
     src: url("Atkinson-Hyperlegible-Regular-102.woff")
     format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: "Atkinson Hyperlegible";
     src: url("Atkinson-Hyperlegible-Bold-102.woff")
     format('woff');
     font-weight: bold;
+    font-display: swap;
 }
 /* Default styles */
 body {
@@ -63,6 +65,7 @@ a.dark-scheme {
     width: fit-content;
     height: fit-content;
     margin: 18px;
+    cursor: pointer;
 }
 #scheme-toggle-button.dark-scheme {
     border: 2px solid #f1f1f1;
