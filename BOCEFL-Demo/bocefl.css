@@ -32,17 +32,27 @@ a {
         color: #450045;
     }
 }
+.radius9px {
+    border-radius: 9px;   
+}
 .info {
     background-color: rgba(0, 102, 0, 0.1);
     padding: 18px;
-    border-radius: 9px;
     margin: 18px;
 }
 .info h2 {
     border-bottom: 1px solid #000000;
     padding-bottom: 9px;
 }
+.event-block {
+    border: 3px solid #000000;
+    background-color: #ffebb7;
+    width: fit-content;
+    padding: 18px;
+    margin: 18px;
+}
 .event-name {
+    margin-top: 0px;
     margin-bottom: 4px;
 }
 .event-info {
@@ -85,9 +95,12 @@ a.dark-scheme {
 .info h2.dark-scheme {
     border-bottom: 1px solid #f1f1f1;
 }
+.event-block.dark-scheme {
+    border: 3px solid #f1f1f1;
+    background-color: #401a00;
+}
 #scheme-toggle-button {
     border: 2px solid #1f1f1f;
-    border-radius: 9px;
     width: fit-content;
     height: fit-content;
     margin: 18px;

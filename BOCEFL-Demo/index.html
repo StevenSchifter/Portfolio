@@ -29,46 +29,54 @@
         </header>
         <!-- Main Section -->
         <section id="main-section">
-            <div id="scheme-toggle-button" onclick="toggleScheme()">
+            <div id="scheme-toggle-button" class="radius9px" tabindex="0" onclick="toggleScheme()">
                 <div id="scheme-toggle-symbol"><div id="scheme-toggle-symbol-L"></div></div>
                 <span id="scheme-toggle-text">Light/Dark Mode</span>
             </div>
-            <article class="info">
+            <article class="info radius9px">
                 <h2>Welcome to the Bahá’í Community of Orange County East!</h2>
                 <p>The Bahá’í community of Orange County East is comprised of people from all backgrounds and walks of life. Inspired by belief in the oneness of humanity, the oneness of religion and the oneness of God, Bahá’ís come together to build a more caring world. The conviction that we belong to one human family is the heart of the Bahá’í Faith. We are engaged in a community building process that cultivates love and translates it into action.</p>
             </article>
-            <article class="info">
+            <article class="info radius9px">
                 <h2>What is the Bahá’í Faith?</h2>
                 <p>One world. One humanity. One God. These are the essential teachings of the Bahá’í Faith. The mission of the Bahá’í Faith is to promote peace, love, and unity around the world. The Faith supports gender equality and harmony between religion and science. We believe that everyone should independently investigate the truth for themselves as best as they can. The Bahá’í Faith has no clergy.</p>
             </article>
-            <article class="info">
+            <article class="info radius9px">
                 <h2>Upcoming Activities/Events</h2>
-                <h3 class="event-name">Sunrise Devotional</h3>
-                <p class="event-info event-date">12/9/2023</p>
-                <p class="event-info event-time">8:00 AM</p>
-                <p class="event-info event-location">Zoom</p>
-                <p class="event-info meeting-id">??? ???? ????</p>
-                <p class="event-info passcode">??????</p>
-                <h3 class="event-name">Sunrise Devotional</h3>
-                <p class="event-info event-date">12/16/2023</p>
-                <p class="event-info event-time">8:00 AM</p>
-                <p class="event-info event-location">Zoom</p>
-                <p class="event-info meeting-id">??? ???? ????</p>
-                <p class="event-info passcode">??????</p>
-                <h3 class="event-name">Sunrise Devotional</h3>
-                <p class="event-info event-date">12/23/2023</p>
-                <p class="event-info event-time">8:00 AM</p>
-                <p class="event-info event-location">Zoom</p>
-                <p class="event-info meeting-id">??? ???? ????</p>
-                <p class="event-info passcode">??????</p>
-                <h3 class="event-name">Sunrise Devotional</h3>
-                <p class="event-info event-date">12/30/2023</p>
-                <p class="event-info event-time">8:00 AM</p>
-                <p class="event-info event-location">Zoom</p>
-                <p class="event-info meeting-id">??? ???? ????</p>
-                <p class="event-info passcode">??????</p>
+                <div class="event-block radius9px">
+                    <h3 class="event-name">Sunrise Devotional</h3>
+                    <p class="event-info event-date">12/9/2023</p>
+                    <p class="event-info event-time">8:00 AM</p>
+                    <p class="event-info event-location">Zoom</p>
+                    <p class="event-info meeting-id">??? ???? ????</p>
+                    <p class="event-info passcode">??????</p>
+                </div>
+                <div class="event-block radius9px">
+                    <h3 class="event-name">Sunrise Devotional</h3>
+                    <p class="event-info event-date">12/16/2023</p>
+                    <p class="event-info event-time">8:00 AM</p>
+                    <p class="event-info event-location">Zoom</p>
+                    <p class="event-info meeting-id">??? ???? ????</p>
+                    <p class="event-info passcode">??????</p>
+                </div>
+                <div class="event-block radius9px">
+                    <h3 class="event-name">Sunrise Devotional</h3>
+                    <p class="event-info event-date">12/23/2023</p>
+                    <p class="event-info event-time">8:00 AM</p>
+                    <p class="event-info event-location">Zoom</p>
+                    <p class="event-info meeting-id">??? ???? ????</p>
+                    <p class="event-info passcode">??????</p>
+                </div>
+                <div class="event-block radius9px">
+                    <h3 class="event-name">Sunrise Devotional</h3>
+                    <p class="event-info event-date">12/30/2023</p>
+                    <p class="event-info event-time">8:00 AM</p>
+                    <p class="event-info event-location">Zoom</p>
+                    <p class="event-info meeting-id">??? ???? ????</p>
+                    <p class="event-info passcode">??????</p>
+                </div>
             </article>
-            <article class="info">
+            <article class="info radius9px">
                 <h2>About Core Activities</h2>
                 <p>The Bahá’í Faith offers the following core activities:</p>
                 <h3>What is a Devotional Gathering?</h3>
@@ -101,5 +109,16 @@
             <p>Copyright &copy; 2020, Braille Institute of America, Inc., <a href="https://www.brailleinstitute.org/freefont">https://www.brailleinstitute.org/freefont</a> with Reserved Typeface Name Atkinson Hyperlegible Font. <a href="Atkinson-Hyperlegible-Font-License-2020-1104.pdf">Read the font license here.</a></p>
             <p>&nbsp;</p>
         </footer>
+        <script>
+            document.querySelector("#scheme-toggle-button").addEventListener("keyup", toggleSchemeWithKey);
+            // The Enter key (and possibly other keys in the future) can toggle the scheme if the button has focus
+            function toggleSchemeWithKey(e) {
+                switch (e.code) {
+                    case "Enter":
+                        toggleScheme();
+                        break;
+                }
+            }
+        </script>
     </body>
 </html>
