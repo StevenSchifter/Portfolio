@@ -42,13 +42,31 @@ a {
     border-bottom: 1px solid #000000;
     padding-bottom: 9px;
 }
-#events-table {
-    border-collapse: collapse;   
-} 
-#events-table th, 
-#events-table td {
-    border: 1px solid #000000;
-    padding: 0.5em;
+.event-name {
+    margin-bottom: 4px;
+}
+.event-info {
+    margin: 0px;
+}
+.event-date::before {
+    content: "Date: ";
+    font-weight: bold;
+}
+.event-time::before {
+    content: "Time: ";
+    font-weight: bold;
+}
+.event-location::before {
+    content: "Location: ";
+    font-weight: bold;
+}
+.meeting-id::before {
+    content: "Meeting ID: ";
+    font-weight: bold;
+}
+.passcode::before {
+    content: "Passcode: ";
+    font-weight: bold;
 }
 /* Dark mode styles */
 body.dark-scheme {
@@ -66,10 +84,6 @@ a.dark-scheme {
 }
 .info h2.dark-scheme {
     border-bottom: 1px solid #f1f1f1;
-}
-#events-table th.dark-scheme, 
-#events-table td.dark-scheme {
-    border: 1px solid #f1f1f1;
 }
 #scheme-toggle-button {
     border: 2px solid #1f1f1f;

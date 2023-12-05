@@ -38,16 +38,6 @@ function toggleScheme()
     {
         ih.classList.toggle("dark-scheme");
     }
-    event_table_head_cells = document.querySelectorAll("#events-table th");
-    for (const hc of event_table_head_cells)
-    {
-        hc.classList.toggle("dark-scheme");
-    }
-    event_table_data_cells = document.querySelectorAll("#events-table td"); 
-    for (const dc of event_table_data_cells)
-    {
-        dc.classList.toggle("dark-scheme");
-    }
     
     // Set dark scheme preference in local storage
     if (document.body.classList.contains("dark-scheme"))
