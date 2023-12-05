@@ -24,19 +24,29 @@ function toggleScheme()
     document.querySelector("#main-header").classList.toggle("dark-scheme");
     // Multi-element style setting code borrowed from https://stackoverflow.com/a/21319538
     links = document.querySelectorAll("a");
-    for(var a = 0; a < links.length; ++a)
+    for(const link of links)
     {
-        links[a].classList.toggle("dark-scheme");
+        link.classList.toggle("dark-scheme");
     }
-    infos = document.querySelectorAll(".info")
-    for (var i = 0; i < infos.length; ++i)
+    info_blocks = document.querySelectorAll(".info")
+    for (const info of info_blocks)
     {
-        infos[i].classList.toggle("dark-scheme");
+        info.classList.toggle("dark-scheme");
     }
     info_headers = document.querySelectorAll(".info h2");
-    for (var ih = 0; ih < info_headers.length; ++ih)
+    for (const ih of info_headers)
     {
-        info_headers[ih].classList.toggle("dark-scheme");
+        ih.classList.toggle("dark-scheme");
+    }
+    event_table_head_cells = document.querySelectorAll("#events-table th");
+    for (const hc of event_table_head_cells)
+    {
+        hc.classList.toggle("dark-scheme");
+    }
+    event_table_data_cells = document.querySelectorAll("#events-table td"); 
+    for (const dc of event_table_data_cells)
+    {
+        dc.classList.toggle("dark-scheme");
     }
     
     // Set dark scheme preference in local storage

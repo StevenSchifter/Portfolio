@@ -42,6 +42,14 @@ a {
     border-bottom: 1px solid #000000;
     padding-bottom: 9px;
 }
+#events-table {
+    border-collapse: collapse;   
+} 
+#events-table th, 
+#events-table td {
+    border: 1px solid #000000;
+    padding: 0.5em;
+}
 /* Dark mode styles */
 body.dark-scheme {
     color: #f1f1f1;
@@ -58,6 +66,10 @@ a.dark-scheme {
 }
 .info h2.dark-scheme {
     border-bottom: 1px solid #f1f1f1;
+}
+#events-table th.dark-scheme, 
+#events-table td.dark-scheme {
+    border: 1px solid #f1f1f1;
 }
 #scheme-toggle-button {
     border: 2px solid #1f1f1f;
