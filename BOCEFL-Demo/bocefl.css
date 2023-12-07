@@ -134,12 +134,12 @@ a.dark-scheme {
 }
 /* Main header styles */
 #main-header {
-    background: url("header-bg-light.jpg") bottom left no-repeat;
+    background: url("header-bg-light.webp") bottom left no-repeat;
     /* Background sizing idea borrowed from https://stackoverflow.com/a/19945042 */
     background-size: cover;
 }
 #main-header.dark-scheme {
-    background: url("header-bg-dark.jpg") bottom left no-repeat;
+    background: url("header-bg-dark.webp") bottom left no-repeat;
     /* Background sizing idea borrowed from https://stackoverflow.com/a/19945042 */
     background-size: cover;
 }
