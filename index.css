@@ -23,9 +23,31 @@ a {
     color: #ffffff;
     background-color: #0000ff;
     padding-bottom: 1px;
+    margin-bottom: 3rem;
 }
 #mainHeaderText {
     margin-top: 0px;
+    margin-bottom: 0px;
+}
+/* Table styles */
+table {
+    border-collapse: collapse;
+    border: none;
+    margin: 1em auto;
+}
+th, td {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 1rem;
+}
+th {
+    border-bottom: 1px solid #000000;
+    font-style: italic;
+    letter-spacing: 0.15rem;
+    text-align: left;
+    text-transform: uppercase;
+}
+th h3 {
     margin-bottom: 0px;
 }
 /* Dark scheme styles */
@@ -75,21 +97,4 @@ th.dark-scheme {
     vertical-align: middle;
     font-size: 1rem;
     margin-right: 1rem;
-}
-/* Table styles */
-table {
-    border-collapse: collapse;
-    border: none;
-    margin: 1em auto;
-}
-th, td {
-    padding: 0.3rem 0.5rem;
-}
-th {
-    padding-top: 2rem;
-    border-bottom: 1px solid #000000;
-    font-style: italic;
-    letter-spacing: 0.1rem;
-    text-align: left;
-    text-transform: uppercase;
 }
