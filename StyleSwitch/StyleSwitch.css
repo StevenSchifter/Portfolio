@@ -3,8 +3,10 @@
 * {
     box-sizing: border-box;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    --sts-diameter: 1.25rem;
+    --stsb-thickness: calc(var(--sts-diameter) / 10);
 }
-/* Default scheme */
+/* Default scheme styles */
 body {
     color: #000000;
     background-color: #b9b9b9;
@@ -20,7 +22,7 @@ a {
     text-align: center;
     margin: 1rem;
 }
-/* Dark scheme */
+/* Dark scheme styles */
 body.dark-scheme {
     color: #f1f1f1;
     background-color: #1f1f1f;
@@ -33,35 +35,37 @@ a.dark-scheme {
 }
 /* Scheme toggle button styles */
 #scheme-toggle-button {
-    border: 2px solid #1f1f1f;
+    border: 3px solid #1f1f1f;
     border-radius: 9px;
     width: fit-content;
     height: fit-content;
-    margin: auto;
+    margin: 1.125rem auto;
+    cursor: pointer;
 }
 #scheme-toggle-button.dark-scheme {
-    border: 2px solid #f1f1f1;
+    border: 3px solid #f1f1f1;
 }
 #scheme-toggle-symbol {
     display: inline-block;
     vertical-align: middle;
-    border: 2px solid #999999;
+    border: var(--stsb-thickness) solid #999999;
     background-color: #ffffff !important;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    width: var(--sts-diameter);
+    height: var(--sts-diameter);
+    border-radius: calc(var(--sts-diameter) / 2);
     margin: 1rem;
 }
 #scheme-toggle-symbol-L {
+    --stsl-height: calc(var(--sts-diameter) - (var(--stsb-thickness) * 2));
+    --stsl-width: calc(var(--stsl-height) / 2);
     background-color: #000000 !important;
-    width: 8px;
-    height: 16px;
-    border-radius: 8px 0px 0px 8px;
+    width: var(--stsl-width);
+    height: var(--stsl-height);
+    border-radius: var(--stsl-width) 0px 0px var(--stsl-width);
     margin: 0px;
 }
 #scheme-toggle-text {
     display: inline;
     vertical-align: middle;
-    font-size: 1rem;
     margin-right: 1rem;
 }
