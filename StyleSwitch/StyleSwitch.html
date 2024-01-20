@@ -20,5 +20,16 @@
             <span id="scheme-toggle-text">Light/Dark Mode</span>
         </div>
         <div id="test-link"><a href="#">Test Link</a></div>
+        <script>
+            document.querySelector("#scheme-toggle-button").addEventListener("keyup", toggleSchemeWithKey);
+            // The Enter key (and possibly other keys in the future) can toggle the scheme if the button has focus
+            function toggleSchemeWithKey(e) {
+                switch (e.code) {
+                    case "Enter":
+                        toggleScheme();
+                        break;
+                }
+            }
+        </script>
     </body>
 </html>
