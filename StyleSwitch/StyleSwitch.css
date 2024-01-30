@@ -7,15 +7,28 @@
     --stsb-thickness: calc(var(--sts-diameter) / 10);
 }
 /* Default scheme styles */
+/* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD */
 body {
     color: #000000;
-    background-color: #b9b9b9;
+    background-color: #d1d1d1;
     margin: 2rem;
 }
 a {
-    color: #000085;
+    /* Using a CSS border instead of an underline as per advice from https://www.webfx.com/blog/web-design/hyperlink-design/ */
+    text-decoration: none;
+    padding-bottom: 0.005rem;
+    border-bottom: 1px solid;
+    &:link {
+        color: #3333fd;
+    }
     &:visited {
-        color: #450045;
+        color: #a000a0;
+    }
+    &:hover {
+        color: #8d4700;
+    }
+    &:active {
+        color: #006833;
     }
 }
 #test-link {
@@ -23,19 +36,28 @@ a {
     margin: 1rem;
 }
 /* Dark scheme styles */
+/* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=F1F1F1&bcolor=1F1F1F&lcolor=0090E9 */
 body.dark-scheme {
     color: #f1f1f1;
     background-color: #1f1f1f;
 }
 a.dark-scheme {
-    color: #00b4ff;
+    &:link {
+        color: #0090e9;
+    }
     &:visited {
-        color: #ff81ff;
+        color: #f000f0;
+    }
+    &:hover {
+        color: #bd7b00;
+    }
+    &:active {
+        color: #009e00;
     }
 }
 /* Scheme toggle button styles */
 #scheme-toggle-button {
-    border: 3px solid #1f1f1f;
+    border: 3px solid #000000;
     border-radius: 9px;
     width: fit-content;
     height: fit-content;
