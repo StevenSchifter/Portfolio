@@ -14,10 +14,7 @@ body {
     margin: 2rem;
 }
 a {
-    /* Using a CSS border instead of an underline as per advice from https://www.webfx.com/blog/web-design/hyperlink-design/ */
-    text-decoration: none;
-    padding-bottom: 0.005rem;
-    border-bottom: 1px solid;
+    text-underline-offset: 0.4em;
     &:link {
         color: #3333fd;
     }
