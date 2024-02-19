@@ -59,11 +59,11 @@ th {
     text-align: left;
     text-transform: uppercase;
 }
+th h2 {
+    margin-bottom: 0px;
+}
 td {
     line-height: 2em;
-}
-th h3 {
-    margin-bottom: 0px;
 }
 /* Dark scheme styles */
 /* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=F1F1F1&bcolor=1F1F1F&lcolor=0090E9 */

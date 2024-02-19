@@ -21,16 +21,11 @@ function toggleScheme()
     // Add or remove the dark scheme CSS class
     document.body.classList.toggle("dark-scheme");
     document.querySelector("#scheme-toggle-button").classList.toggle("dark-scheme");
-    // Multi-element style setting code borrowed from https://stackoverflow.com/a/21319538
-    links = document.querySelectorAll("a");
-    for(var a = 0; a < links.length; ++a)
+    // Multi-element style setting code inspired by https://stackoverflow.com/a/21319538
+    elementsToToggle = document.querySelectorAll("a, th")
+    for (let elem of elementsToToggle)
     {
-        links[a].classList.toggle("dark-scheme");
-    }
-    tableHeaderCells = document.querySelectorAll("th")
-    for(var h = 0; h < tableHeaderCells.length; ++h)
-    {
-        tableHeaderCells[h].classList.toggle("dark-scheme");
+        elem.classList.toggle("dark-scheme");
     }
     
     // Set dark scheme preference in local storage

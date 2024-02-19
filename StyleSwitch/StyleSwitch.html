@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +13,16 @@
         <title>Style Switch Example</title>
     </head>
     <body onload="detectDarkMode()">
-        <div id="scheme-toggle-button" tabindex="0" aria-role="button" title="Toggle between light mode and dark mode" onclick="toggleScheme()">
-            <div id="scheme-toggle-symbol"><div id="scheme-toggle-symbol-L"></div></div>
-            <span id="scheme-toggle-text">Light/Dark Mode</span>
-        </div>
-        <div id="test-link"><a href="#">Test Link</a></div>
+        <header id="main-header">
+            <h1 id="main-header-text">Style Switch Example</h1>
+        </header>
+        <main>
+            <div id="scheme-toggle-button" tabindex="0" aria-role="button" title="Toggle between light mode and dark mode" onclick="toggleScheme()">
+                <div id="scheme-toggle-symbol"><div id="scheme-toggle-symbol-L"></div></div>
+                <span id="scheme-toggle-text">Light/Dark Mode</span>
+            </div>
+            <div id="test-link"><a href="#">Test Link</a></div>
+        </main>
         <script>
             document.querySelector("#scheme-toggle-button").addEventListener("keyup", toggleSchemeWithKey);
             // The Enter key (and possibly other keys in the future) can toggle the scheme if the button has focus
