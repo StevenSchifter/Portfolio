@@ -35,3 +35,16 @@ function toggleScheme()
         localStorage.setItem("usingDarkScheme", "false");
     }
 }
+
+// The Enter or Space key can toggle the scheme if the button has focus
+function toggleSchemeWithKey(e) {
+    switch (e.code) {
+        case "Enter":
+            toggleScheme();
+            break;
+        case "Space":
+            e.preventDefault();
+            toggleScheme();
+            break;
+    }
+}

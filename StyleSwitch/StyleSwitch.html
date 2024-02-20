@@ -24,15 +24,7 @@
             <div id="test-link"><a href="#">Test Link</a></div>
         </main>
         <script>
-            document.querySelector("#scheme-toggle-button").addEventListener("keyup", toggleSchemeWithKey);
-            // The Enter key (and possibly other keys in the future) can toggle the scheme if the button has focus
-            function toggleSchemeWithKey(e) {
-                switch (e.code) {
-                    case "Enter":
-                        toggleScheme();
-                        break;
-                }
-            }
+            document.querySelector("#scheme-toggle-button").addEventListener("keydown", toggleSchemeWithKey);
         </script>
     </body>
 </html>
