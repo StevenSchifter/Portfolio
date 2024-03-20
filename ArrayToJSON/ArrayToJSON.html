@@ -9,13 +9,13 @@
 <body>
     <h1>Generate JSON Array From Input Field Data</h1>
     <noscript>This page requires a JavaScript-enabled browser.</noscript>
-    <label for="a1">Attribute 1:</label>
-    <input type="text" id="a1"><br>
-    <label for="a2">Attribute 2:</label>
-    <input type="text" id="a2"><br>
-    <label for="a3">Attribute 3:</label>
-    <input type="text" id="a3"><br><br>
-    <button id="submitButton" onclick="validateElements();">Generate JSON</button><br><br>
+    <label id="f1Label" for="f1">Field 1</label>
+    <input type="text" id="f1"><br>
+    <label id="f2Label" for="f2">Field 2</label>
+    <input type="text" id="f2"><br>
+    <label id="f3Label" for="f3">Field 3</label>
+    <input type="text" id="f3"><br><br>
+    <button id="submitButton" onclick="validateFields();">Generate JSON</button><br><br>
     <p id="output"></p>
     <script src="ArrayToJSON.js"></script>
 </body>
