@@ -1,11 +1,28 @@
+*
+{
+    font-family: Consolas, monospace;
+    margin-top: 10px;
+}
 body
 {
     background-color: #000040;
 }
+h1
+{
+    margin-left: 1rem;
+}
 h1, label
 {
-    color: white;
+    color: #f1f1f1;
     font-weight: bold;
+}
+label
+{
+    display: inline-block;
+    width: 20rem;
+    text-align: right;
+    padding: 6px;
+    vertical-align: top;
 }
 input
 {
@@ -14,22 +31,23 @@ input
     border-radius: 9px;
     color: #fbdc13;
     padding: 6px;
+    width: 20rem;
+}
+#indentation
+{
+    width: 8rem;
+    /* display: block; */
 }
 label, input
 {
     font-size: large;
 }
-#output
+button
 {
-    color: gold;
-    font-size: x-large;
-}
-#submitButton
-{
-    background-color: gold;
+    background-color: #ffd700;
+    color: #000040;
     border: none;
     border-radius: 9px;
-    color: black;
     font-size: x-large;
     font-weight: bold;
     padding-bottom: 9px;
@@ -37,9 +55,9 @@ label, input
     padding-right: 18px;
     padding-top: 9px;
 }
-*
+#output
 {
-    font-family: Consolas, monospace;
-    margin-left: 20px;
-    margin-top: 30px;
+    color: #ffd700;
+    font-size: x-large;
+    margin: 3rem;
 }
