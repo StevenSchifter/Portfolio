@@ -1,9 +1,18 @@
 "use strict";
 
-const gfb = document.querySelector("#generateFlatButton");
-const gnb = document.querySelector("#generateNestedButton");
-gfb.addEventListener("click", event => {event.preventDefault(); validateFields();});  
-gnb.addEventListener("click", event => {event.preventDefault(); validateFields(true);});  
+const gLb = document.querySelector("#generateLinearButton");
+const gNb = document.querySelector("#generateNestedButton");
+gLb.addEventListener("click", event => {event.preventDefault(); validateFields();});
+gNb.addEventListener("click", event => {event.preventDefault(); validateFields(true);});
+
+function enforceMinimumIndentValue()
+{
+    let indentation = parseInt(document.querySelector("#indentation").value);
+    if (indentation < 1)
+    {
+        document.querySelector("#indentation").value = "1";
+    }
+}
 
 // This function checks whether any of the input fields are blank.
 function validateFields(useNesting = false)
@@ -11,6 +20,8 @@ function validateFields(useNesting = false)
     const myFields = document.querySelectorAll(".data");
     let myObjectArray = []; // https://stackoverflow.com/questions/15742442/declaring-array-of-objects
     
+    enforceMinimumIndentValue();
+
     // If any input field is blank, display a message under the button and break out of validateElements.
     // Indexed iteration in for-of loop code inspired by https://stackoverflow.com/a/10179849
     for (let [i, f] of myFields.entries())
@@ -40,15 +51,15 @@ function validateFields(useNesting = false)
     return true;
     
     // generateJSON() is an inner function, which keeps code organized.
-    function generateJSON(myData, indentation)
+    function generateJSON(myData, myIndentation)
     {
-        if (!indentation)
+        if (!myIndentation)
         {
             document.getElementById("output").innerHTML = `<pre>${JSON.stringify(myData)}</pre>`;
         }
         else
         {
-            document.getElementById("output").innerHTML = `<pre>${JSON.stringify(myData, null, indentation)}</pre>`;
+            document.getElementById("output").innerHTML = `<pre>${JSON.stringify(myData, null, myIndentation)}</pre>`;
         }
     }
 }
