@@ -1,17 +1,41 @@
 "use strict";
 
-const gLb = document.querySelector("#generateLinearButton");
-const gNb = document.querySelector("#generateNestedButton");
-gLb.addEventListener("click", event => {event.preventDefault(); validateFields();});
-gNb.addEventListener("click", event => {event.preventDefault(); validateFields(true);});
-
-function enforceMinimumIndentValue()
+function getIndentation()
 {
-    let indentation = parseInt(document.querySelector("#indentation").value);
+    return parseInt(document.querySelector("#indentation").value);
+}
+
+function setIndentation(indentation)
+{
+    document.querySelector("#indentation").value = indentation;
+}
+
+function enforceMinimumIndentationValue()
+{
+    let indentation = getIndentation();
     if (indentation < 1)
     {
-        document.querySelector("#indentation").value = "1";
+        setIndentation(1);
     }
+}
+
+// This function allows changing the indentation level with the mouse wheel.
+function changeIndentation(event)
+{
+    let indentation = getIndentation();
+    
+    if (event.deltaY < 0)
+    {
+        // Wheel scrolled up
+        indentation++;
+    }
+    else if (event.deltaY > 0)
+    {
+        // Wheel scrolled down
+        indentation--;
+    }
+    setIndentation(indentation);
+    enforceMinimumIndentationValue();
 }
 
 // This function checks whether any of the input fields are blank.
@@ -20,7 +44,7 @@ function validateFields(useNesting = false)
     const myFields = document.querySelectorAll(".data");
     let myObjectArray = []; // https://stackoverflow.com/questions/15742442/declaring-array-of-objects
     
-    enforceMinimumIndentValue();
+    enforceMinimumIndentationValue();
 
     // If any input field is blank, display a message under the button and break out of validateElements.
     // Indexed iteration in for-of loop code inspired by https://stackoverflow.com/a/10179849
