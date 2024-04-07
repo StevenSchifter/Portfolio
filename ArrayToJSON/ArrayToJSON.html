@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Generate JSON Array From Input Field Data</h1>
-        <noscript>This page requires a JavaScript-enabled browser.</noscript>
+        <noscript><div class="noscript"><span class="bigWarningSign">&#x26A0;</span> This page requires a JavaScript-enabled browser.</div></noscript>
         <main>
             <form>
                 <div>
@@ -28,7 +28,7 @@
                     <label id="indentationLabel" for="indentation">Indentation for nested JSON</label>
                     <input type="number" id="indentation" value="2" min="1">
                 </div>
-                <div class="extraTopMargin">
+                <div id="buttonContainer" class="extraTopMargin">
                     <button id="generateLinearButton" type="button">Generate JSON (Linear)</button>
                     <button id="generateNestedButton" type="button">Generate JSON (Nested)</button>
                 </div>

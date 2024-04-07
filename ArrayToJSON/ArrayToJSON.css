@@ -10,11 +10,14 @@ body
     background-color: #000040;
     margin: 2rem;
 }
-noscript
+.noscript
 {
+    border-radius: 9px;
     background-color: #800000;
     color: #f1f1f1;
     font-size: x-large;
+    text-align: center;
+    line-height: 1.5em;
     padding: 0.5rem;
     animation-name: warning;
     animation-duration: 5s;
@@ -26,23 +29,14 @@ noscript
     50% {background-color: #CC0000; color: #ffffff;}
     100% {background-color: #800000; color: #f1f1f1;}
 }
-noscript::before
+.bigWarningSign
 {
-    content: "\26A0";
     font-size: xx-large;
-    padding-right: 0.75rem;
-    padding-left: 0.5rem;
-    position: relative;
-    top: 0.25rem;
 }
 h1, label
 {
     color: #f1f1f1;
     font-weight: bold;
-}
-main
-{
-    max-width: 75%;
 }
 label
 {
@@ -67,6 +61,10 @@ input#indentation
 label, input
 {
     font-size: large;
+}
+#buttonContainer
+{
+    display: flex;
 }
 button
 {
