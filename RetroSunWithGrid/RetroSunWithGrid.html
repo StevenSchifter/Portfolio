@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 
+            Author: Steven Schifter
+            Date: 5/29/2024
+            References:
+            https://fossheim.io/writing/posts/css-text-gradient/ (for title text gradient; I discovered the chrome effect by accident)
+            https://www.w3docs.com/learn-css/text-fill-color.html ("The text-fill-color property has not been standardized yet.")
+            https://stackoverflow.com/a/9287578 (color and text-fill-color are not different, so color was used instead)
+            https://stackoverflow.com/a/42000085 (setting the content of a pseudo element)
+            https://developer.mozilla.org/en-US/docs/Web/CSS/rotate (rotating the table)
+            https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/perspective (giving the table a 3D appearance)
+            https://css-tricks.com/how-css-perspective-works/ (giving the table a 3D appearance)
+            https://www.w3schools.com/cssref/func_linear-gradient.php (coloring the sun with a gradient)
+            https://stackoverflow.com/a/6087730 (setting CSS position via JavaScript)
+            https://www.w3schools.com/css/css3_variables_javascript.asp (reading CSS variables in JavaScript)
+            https://stackoverflow.com/a/3024092 (converting pixel values to numbers)
+            https://stackoverflow.com/a/35395187 (setting CSS gradient via JavaScript)
+            https://stackoverflow.com/a/2870024 (preventing CSS gradient background from repeating)
+        -->
+        <style>
+            /* General styles */
+            * {
+                box-sizing: border-box;
+            }
+            .teal-background {
+                height: 100%;
+                margin: 0;
+                background: linear-gradient(
+                    hsl(252, 72%, 27%) 0%,
+                    hsl(180, 72%, 27%) 100%
+                );
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            /* Title styles */
+            #title-text {
+                margin: auto;
+                text-align: center;
+                text-wrap: nowrap;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 128px;
+                font-weight: bold;
+                font-style: italic;
+                background-clip: text;
+                color: transparent;
+                background-image: linear-gradient(
+                    hsl(243, 100%, 50%) 0%,
+                    hsl(144, 100%, 95%) 45%,
+                    hsl(45, 100%, 36%) 50%,
+                    hsl(0, 0%, 95%) 75%
+                );
+            }
+            /* text-shadow appeared in front of the text, so I came up with this clever workaround. */
+            #title-text::after {
+                content: attr(titleTextContent);
+                color: hsla(0, 0%, 0%, 75%);
+                position: absolute;
+                translate: -5.85em 0.05em;
+                z-index: -1;
+            }
+            /* Grid styles */
+            table {
+                margin: auto;
+                border-collapse: collapse;
+                position: relative;
+                top: -32px;
+                transform: perspective(512px) rotateX(45deg);
+            }
+            td {
+                border: 4px solid hsl(72, 100%, 72%);
+                background-color: hsla(240, 100%, 50%, 35%);
+                width: 128px;
+                height: 64px;
+            }
+            /* Sun styles */
+            #sun {
+                --sun-diameter: 512px;
+                margin: auto;
+                position: relative;
+                top: 32px;
+                border-radius: 50%;
+                width: var(--sun-diameter);
+                height: var(--sun-diameter);
+            }
+        </style>
+        <title>Retro Sun With Grid</title>
+    </head>
+    <body class="teal-background">
+        <h1 id="title-text"></h1>
+        <div id="sun">
+        </div>
+        <table>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+        <script>
+            // Adds content to the title text and its ::after pseudo element
+            function addtitleTextContent()
+            {
+                const titleTextContent = "RETRO SUN";
+                let ttElem = document.getElementById("title-text");
+                ttElem.innerText = titleTextContent;
+                ttElem.setAttribute("titleTextContent", titleTextContent);
+            }
+            // Generates strings into an array used to define gradient stops (transparent for lines, otherwise a decreasing hue) for the sun graphic
+            function generateSunGradientWithLines()
+            {
+                const sun = document.getElementById("sun");
+                const startHue = 60;
+                const lines = 6;
+                const linesStartPct = 48;
+                const hueIncrement = (x) => (x / (lines * (100 / linesStartPct)));
+                const hue = (x) => (startHue - (hueIncrement(x) * startHue));
+                const gradientStop = (x) => (100 * hueIncrement(x));
+                const lineHeightGrowth = (x) => (gradientStop(x) / 135);
+                const transparentGradientStop = (x) => (gradientStop(x + lineHeightGrowth(x)));
+                var sunGradient = []; // array to hold strings containing gradient colors and stops
+
+                for (let x = 0; x < (lines * 2); x++)
+                {
+                    if (gradientStop(x) >= linesStartPct)
+                    {
+                        sunGradient.push("hsl(" + hue(x) + ", 100%, 50%) " + gradientStop(x) + "%");
+                        sunGradient.push("transparent " + gradientStop(x) + "%");
+                        sunGradient.push("transparent " + transparentGradientStop(x) + "%");
+                        sunGradient.push("hsl(" + hue(x) + ", 100%, 50%) " + transparentGradientStop(x) + "%");
+                        sunGradient.push("hsl(" + hue(x) + ", 100%, 50%) " + gradientStop(x + 1) + "%");
+                    }
+                    else
+                    {
+                        sunGradient.push("hsl(" + hue(x) + ", 100%, 50%) " + gradientStop(x) + "%");
+                    }
+                }
+
+                sun.style.background = "linear-gradient(" + sunGradient.join() + ")";
+            }
+            // Generates the rows and columns in the table element, rotated and colored to look like a retro grid pattern
+            function generateGrid()
+            {
+                var rows = 6;
+                var cols = 12;
+                var tb = document.getElementById("tableBody");
+                var tr = null;
+                var td = null;
+
+                for (var r = 0; r < rows; r++)
+                {
+                    tr = document.createElement("tr");
+                    tr.id = "row" + r;
+                    tb.appendChild(tr);
+                    for (var c = 0; c < cols; c++)
+                    {
+                        td = document.createElement("td");
+                        td.id = "row" + r + "col" + c;
+                        tr.appendChild(td);
+                    }
+                }
+            }
+            // Function calls
+            addtitleTextContent();
+            generateSunGradientWithLines();
+            generateGrid();
+        </script>
+    </body>
+</html>
