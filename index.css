@@ -104,20 +104,11 @@ th.dark-scheme {
     display: inline-block;
     vertical-align: middle;
     border: var(--stsb-thickness) solid #999999;
-    background-color: #ffffff !important;
+    background: linear-gradient(to right, #000000, #000000 50%, #ffffff 50%, #ffffff 100%) !important;
     width: var(--sts-diameter);
     height: var(--sts-diameter);
-    border-radius: calc(var(--sts-diameter) / 2);
+    border-radius: 50%;
     margin: 1rem;
-}
-#scheme-toggle-symbol-L {
-    --stsl-height: calc(var(--sts-diameter) - (var(--stsb-thickness) * 2));
-    --stsl-width: calc(var(--stsl-height) / 2);
-    background-color: #000000 !important;
-    width: var(--stsl-width);
-    height: var(--stsl-height);
-    border-radius: var(--stsl-width) 0px 0px var(--stsl-width);
-    margin: 0px;
 }
 #scheme-toggle-text {
     display: inline;

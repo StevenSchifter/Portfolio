@@ -1,3 +1,15 @@
+"use strict";
+// Global constants
+const today = new Date(); // Today's date
+const thisYear = today.getFullYear();
+
+// Write current year for copyright info
+function writeCurrentYear()
+{
+    // Alternative to document.write learned from https://stackoverflow.com/a/27531116
+    document.querySelector(".current-year").innerHTML = thisYear;
+}
+
 // Detect dark scheme preference or OS dark mode setting
 function detectDarkMode()
 {
@@ -22,7 +34,7 @@ function toggleScheme()
     document.body.classList.toggle("dark-scheme");
     document.querySelector("#scheme-toggle-button").classList.toggle("dark-scheme");
     // Multi-element style setting code inspired by https://stackoverflow.com/a/21319538 and https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector
-    itemsToToggle = document.querySelectorAll("a, th")
+    let itemsToToggle = document.querySelectorAll("a, th")
     itemsToToggle.forEach((item) => item.classList.toggle("dark-scheme"));
     
     // Set dark scheme preference in local storage
