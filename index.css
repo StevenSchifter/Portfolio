@@ -3,8 +3,6 @@
 * {
     box-sizing: border-box;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-    --sts-diameter: 1.25rem;
-    --stsb-thickness: calc(var(--sts-diameter) / 10);
 }
 /* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD 
 and
