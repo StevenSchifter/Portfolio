@@ -1,5 +1,5 @@
 'use strict';
-
+// Global constants
 const colorScheme = document.querySelector('meta[name="color-scheme"]');
 
 // Detect color scheme preference or OS light/dark mode setting
@@ -25,7 +25,7 @@ function detectColorSchemePref()
         schemeSelector.value = 'auto';
     }
     
-    // If no preference was found, check OS dark mode setting and use that to set scheme and preference (now handled automatically by the meta tag named "color-scheme")
+    // If no preference was found, check OS light/dark mode setting and use that to set scheme and preference (now handled automatically by the meta tag named "color-scheme")
 }
 
 // Switch between automatic, light, and dark schemes 

@@ -4,22 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="darkreader-lock">
+        <meta name="color-scheme" content="light dark">
         <!-- 
             Author: Steven Schifter
+            Updated: 2025-04-10
         -->
         <link href="index.css" rel="stylesheet" type="text/css">
         <script src="index.js" type="text/javascript"></script>
         <title>Steven Schifter's Portfolio</title>
         <base target="_blank">
     </head>
-    <body onload="detectDarkMode()">
+    <body onload="detectColorSchemePref()">
         <header id="main-header">
             <h1 id="main-header-text">Steven Schifter's Portfolio</h1>
         </header>
         <main>
-            <div id="scheme-toggle-button" tabindex="0" aria-role="button" title="Toggle between light mode and dark mode" onclick="toggleScheme()">
-                <div id="scheme-toggle-symbol"></div>
-                <span id="scheme-toggle-text">Light/Dark Mode</span>
+            <div id="scheme-selector-container" class="centered">
+                <label for="scheme-selector" class="strong">Select a color scheme for this page: </label>
+                <select name="scheme-selector" id="scheme-selector" onchange="toggleScheme(this.value)" tabindex="0">
+                    <option value="auto">Automatic</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
             </div>
             <table id="indexTable">
                 <tr>
@@ -78,12 +84,11 @@
                 </tr>
             </table>
         </main>
-        <footer id="mainFooter">
+        <footer id="mainFooter" class="centered">
             <p>Skill demos &copy; 2022-<span class="current-year"></span> Steven Schifter</p>
             <p><a href="https://github.com/StevenSchifter">My GitHub profile</a></p>
         </footer>
         <script>
-            document.querySelector("#scheme-toggle-button").addEventListener("keydown", toggleSchemeWithKey);
             writeCurrentYear();
         </script>
     </body>
