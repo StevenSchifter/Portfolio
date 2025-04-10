@@ -1,51 +1,51 @@
-"use strict";
-// Detect dark scheme preference or OS dark mode setting
-function detectDarkMode()
+'use strict';
+
+const colorScheme = document.querySelector('meta[name="color-scheme"]');
+
+// Detect color scheme preference or OS light/dark mode setting
+function detectColorSchemePref()
 {
-    // First check local storage for dark scheme preference
-    if (localStorage.getItem("usingDarkScheme") === "true")
+    let schemeSelector = document.querySelector('#scheme-selector');
+    
+    // First check local storage for dark scheme preference,
+    // and then make the selector value match that preference
+    if (localStorage.getItem('usingDarkScheme') === 'true')
     {
-        toggleScheme();
+        toggleScheme('dark');
+        schemeSelector.value = 'dark';
+    }
+    else if (localStorage.getItem('usingDarkScheme') === 'false')
+    {
+        toggleScheme('light');
+        schemeSelector.value = 'light';
+    }
+    else if (localStorage.getItem('usingDarkScheme') === 'auto')
+    {
+        toggleScheme('auto');
+        schemeSelector.value = 'auto';
     }
     
-    // If no preference was found, check OS dark mode setting and use that to set scheme and preference
-    // Media-matching code borrowed from https://flaviocopes.com/javascript-detect-dark-mode/
-    else if (localStorage.getItem("usingDarkScheme") === null && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    {
-        toggleScheme();
-    }
+    // If no preference was found, check OS dark mode setting and use that to set scheme and preference (now handled automatically by the meta tag named "color-scheme")
 }
 
-// Switch between light and dark schemes 
-function toggleScheme()
+// Switch between automatic, light, and dark schemes 
+function toggleScheme(pref)
 {
-    // Add or remove the dark scheme CSS class
-    document.body.classList.toggle("dark-scheme");
-    document.querySelector("#scheme-toggle-button").classList.toggle("dark-scheme");
-    // Multi-element style setting code inspired by https://stackoverflow.com/a/21319538 and https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector
-    let itemsToToggle = document.querySelectorAll("a")
-    itemsToToggle.forEach((item) => item.classList.toggle("dark-scheme"));
-    
-    // Set dark scheme preference in local storage
-    if (document.body.classList.contains("dark-scheme"))
+    // Change the content of the meta tag named "color-scheme",
+    // and then set dark scheme preference in local storage
+    if (pref === 'auto')
     {
-        localStorage.setItem("usingDarkScheme", "true");
+        colorScheme.setAttribute('content', 'light dark');
+        localStorage.setItem('usingDarkScheme', 'auto');
     }
-    else
+    else if (pref === 'light')
     {
-        localStorage.setItem("usingDarkScheme", "false");
+        colorScheme.setAttribute('content', 'light');
+        localStorage.setItem('usingDarkScheme', 'false');
     }
-}
-
-// The Enter or Space key can toggle the scheme if the button has focus
-function toggleSchemeWithKey(e) {
-    switch (e.code) {
-        case "Enter":
-            toggleScheme();
-            break;
-        case "Space":
-            e.preventDefault();
-            toggleScheme();
-            break;
+    else if (pref === 'dark')
+    {
+        colorScheme.setAttribute('content', 'dark');
+        localStorage.setItem('usingDarkScheme', 'true');
     }
 }

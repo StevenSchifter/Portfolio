@@ -3,82 +3,39 @@
 * {
     box-sizing: border-box;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-    --sts-diameter: 1.25rem;
-    --stsb-thickness: calc(var(--sts-diameter) / 10);
 }
-/* Default scheme styles */
-/* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD */
+/* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD 
+and
+https://webaim.org/resources/linkcontrastchecker/?fcolor=F1F1F1&bcolor=1F1F1F&lcolor=0090E9
+*/
 body {
-    color: #000000;
-    background-color: #d1d1d1;
+    color: light-dark(#000000, #f1f1f1);
+    background-color: light-dark(#d1d1d1, #1f1f1f);
     margin: 2rem;
 }
-header {
+.centered {
+    max-width: fit-content;
+    margin-inline: auto;
     text-align: center;
+}
+.strong {
+    font-weight: bold;
+}
+#scheme-selector {
+    padding: 0.25rem;
 }
 a {
     text-underline-offset: 0.4em;
     &:link {
-        color: #3333fd;
+        color: light-dark(#3333fd, #0090e9);
     }
     &:visited {
-        color: #a000a0;
+        color: light-dark(#a000a0, #f000f0);
     }
     &:hover {
-        color: #8d4700;
+        color: light-dark(#8d4700, #bd7b00);
     }
     &:active {
-        color: #006833;
+        color: light-dark(#006833, #009e00);
     }
-}
-#test-link {
-    text-align: center;
-    margin: 1rem;
-}
-/* Dark scheme styles */
-/* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=F1F1F1&bcolor=1F1F1F&lcolor=0090E9 */
-body.dark-scheme {
-    color: #f1f1f1;
-    background-color: #1f1f1f;
-}
-a.dark-scheme {
-    &:link {
-        color: #0090e9;
-    }
-    &:visited {
-        color: #f000f0;
-    }
-    &:hover {
-        color: #bd7b00;
-    }
-    &:active {
-        color: #009e00;
-    }
-}
-/* Scheme toggle button styles */
-#scheme-toggle-button {
-    border: 3px solid #000000;
-    border-radius: 9px;
-    width: fit-content;
-    height: fit-content;
-    margin: 1.125rem auto;
-    cursor: pointer;
-}
-#scheme-toggle-button.dark-scheme {
-    border: 3px solid #f1f1f1;
-}
-#scheme-toggle-symbol {
-    display: inline-block;
-    vertical-align: middle;
-    border: var(--stsb-thickness) solid #999999;
-    background: linear-gradient(to right, #000000, #000000 50%, #ffffff 50%, #ffffff 100%) !important;
-    width: var(--sts-diameter);
-    height: var(--sts-diameter);
-    border-radius: 50%;
-    margin: 1rem;
-}
-#scheme-toggle-text {
-    display: inline;
-    vertical-align: middle;
-    margin-right: 1rem;
 }
