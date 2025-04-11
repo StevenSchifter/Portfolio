@@ -21,6 +21,9 @@ body {
 .strong {
     font-weight: bold;
 }
+#selector-container {
+    margin-bottom: 4em;
+}
 select {
     font-size: 16pt;
     padding: 0.25em;
