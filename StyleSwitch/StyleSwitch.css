@@ -2,7 +2,6 @@
 /* Site-wide styles */
 * {
     box-sizing: border-box;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 }
 /* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD 
 and
@@ -12,6 +11,7 @@ body {
     color: light-dark(#000000, #f1f1f1);
     background-color: light-dark(#d1d1d1, #1f1f1f);
     margin: 2rem;
+    font-size: 16pt;
 }
 .centered {
     max-width: fit-content;
@@ -21,11 +21,15 @@ body {
 .strong {
     font-weight: bold;
 }
-#scheme-selector {
-    padding: 0.25rem;
+select {
+    font-size: 16pt;
+    padding: 0.25em;
+}
+p {
+    line-height: 1.5em;
 }
 a {
-    text-underline-offset: 0.4em;
+    text-underline-offset: 0.4rem;
     &:link {
         color: light-dark(#3333fd, #0090e9);
     }

@@ -19,13 +19,24 @@
             <h1 id="main-header-text">Style Switcher Example</h1>
         </header>
         <main>
-            <div id="scheme-selector-container" class="centered">
-                <label for="scheme-selector" class="strong">Select a color scheme for this page: </label>
-                <select name="scheme-selector" id="scheme-selector" onchange="toggleScheme(this.value)" tabindex="0">
-                    <option value="auto">Automatic</option>
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
+            <div id="selector-container" class="centered">
+                <p>
+                    <label for="scheme-selector" class="strong">Color scheme: </label>
+                    <select name="scheme-selector" id="scheme-selector" onchange="toggleScheme(this.value)" tabindex="0">
+                        <option value="auto">Automatic</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="font-selector" class="strong">Font: </label>
+                    <select name="font-selector" id="font-selector" onchange="toggleFontFamily(this.value)">
+                        <option value="default">Default</option>
+                        <option value="serif">Serif</option>
+                        <option value="sans-serif">Sans-serif</option>
+                        <option value="monospace">Monospaced</option>
+                    </select>
+                </p>
             </div>
             <p class="centered">The following resources helped me learn the skills I needed to construct this page:</p>
             <p class="centered"><a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">Dark Mode in CSS Guide</a></p>

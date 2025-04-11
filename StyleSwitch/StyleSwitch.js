@@ -49,3 +49,10 @@ function toggleScheme(pref)
         localStorage.setItem('usingDarkScheme', 'true');
     }
 }
+
+// Switch font family
+function toggleFontFamily(fontFamilyPref)
+{
+    //let fontSelector = document.querySelector('#font-selector');
+    fontFamilyPref === 'default' ? document.body.style.fontFamily = '' : document.body.style.fontFamily = fontFamilyPref;
+}
