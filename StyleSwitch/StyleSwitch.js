@@ -55,8 +55,12 @@ function toggleScheme(schemePref)
 }
 
 // Switch font family
-function toggleFontFamily(fontPref = 'default')
+function toggleFontFamily(fontPref)
 {
+    if (fontPref === null)
+    {
+        fontPref = 'default';
+    }
     document.body.style.fontFamily = fontPref === 'default' ? '' : fontPref;
     localStorage.setItem('fontPref', fontPref);
 }
