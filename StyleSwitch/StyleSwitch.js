@@ -28,8 +28,12 @@ function detectPrefs()
         schemeSelector.value = 'auto';
     }
 
+    if (fontPref === null)
+    {
+        fontPref = 'default';
+    }
     toggleFontFamily(fontPref);
-    fontSelector.value = fontPref ? fontPref : 'default';
+    fontSelector.value = fontPref;
 }
 
 // Switch between automatic, light, and dark schemes 
@@ -57,10 +61,6 @@ function toggleScheme(schemePref)
 // Switch font family
 function toggleFontFamily(fontPref)
 {
-    if (fontPref === null)
-    {
-        fontPref = 'default';
-    }
     document.body.style.fontFamily = fontPref === 'default' ? '' : fontPref;
     localStorage.setItem('fontPref', fontPref);
 }
