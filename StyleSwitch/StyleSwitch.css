@@ -1,7 +1,8 @@
 @charset "UTF-8";
 /* Site-wide styles */
-* {
+:root {
     box-sizing: border-box;
+    --font-pref: initial;
 }
 /* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD 
 and
@@ -11,6 +12,7 @@ body {
     color: light-dark(#000000, #f1f1f1);
     background-color: light-dark(#d1d1d1, #1f1f1f);
     margin: 2rem;
+    font-family: var(--font-pref);
     font-size: 16pt;
 }
 .centered {
@@ -25,6 +27,7 @@ body {
     margin-bottom: 4em;
 }
 select {
+    font-family: var(--font-pref);
     font-size: 16pt;
     padding: 0.25em;
 }
