@@ -6,28 +6,27 @@ const colorScheme = document.querySelector('meta[name="color-scheme"]');
 function detectPrefs()
 {
     let schemeSelector = document.querySelector('#scheme-selector');
+    let usingDarkScheme = localStorage.getItem('usingDarkScheme');
     let fontSelector = document.querySelector('#font-selector');
     let fontPref = localStorage.getItem('fontPref');
     
     // First check local storage for preferences,
     // and then make the selector values match those preferences
-    if (localStorage.getItem('usingDarkScheme') === 'true')
+    if (usingDarkScheme === 'true')
     {
         toggleScheme('dark');
         schemeSelector.value = 'dark';
     }
-    else if (localStorage.getItem('usingDarkScheme') === 'false')
+    else if (usingDarkScheme === 'false')
     {
         toggleScheme('light');
         schemeSelector.value = 'light';
     }
-    else if (localStorage.getItem('usingDarkScheme') === 'auto')
+    else // Default to automatic color scheme
     {
         toggleScheme('auto');
         schemeSelector.value = 'auto';
     }
-    
-    // If no color scheme preference was found, check OS light/dark mode setting and use that to set scheme and preference (now handled automatically by the meta tag named "color-scheme")
 
     toggleFontFamily(fontPref);
     fontSelector.value = fontPref ? fontPref : 'default';
@@ -48,7 +47,7 @@ function toggleScheme(schemePref)
         colorScheme.setAttribute('content', 'dark');
         localStorage.setItem('usingDarkScheme', 'true');
     }
-    else // Default to automatic color scheme
+    else if (schemePref === 'auto')
     {
         colorScheme.setAttribute('content', 'light dark');
         localStorage.setItem('usingDarkScheme', 'auto');
