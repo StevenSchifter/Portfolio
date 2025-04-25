@@ -28,7 +28,7 @@ function detectPrefs()
         schemeSelector.value = 'auto';
     }
 
-    if (fontPref === null)
+    if (fontPref === 'null')
     {
         fontPref = 'default';
     }
