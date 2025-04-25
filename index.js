@@ -38,23 +38,23 @@ function detectColorSchemePref()
 }
 
 // Switch between automatic, light, and dark schemes 
-function toggleScheme(pref)
+function toggleScheme(schemePref)
 {
     // Change the content of the meta tag named "color-scheme",
-    // and then set dark scheme preference in local storage
-    if (pref === 'auto')
-    {
-        colorScheme.setAttribute('content', 'light dark');
-        localStorage.setItem('usingDarkScheme', 'auto');
-    }
-    else if (pref === 'light')
+    // and then set the color scheme preference in local storage
+    if (schemePref === 'light')
     {
         colorScheme.setAttribute('content', 'light');
         localStorage.setItem('usingDarkScheme', 'false');
     }
-    else if (pref === 'dark')
+    else if (schemePref === 'dark')
     {
         colorScheme.setAttribute('content', 'dark');
         localStorage.setItem('usingDarkScheme', 'true');
+    }
+    else // Default to automatic color scheme
+    {
+        colorScheme.setAttribute('content', 'light dark');
+        localStorage.setItem('usingDarkScheme', 'auto');
     }
 }

@@ -37,13 +37,8 @@ function detectPrefs()
 function toggleScheme(schemePref)
 {
     // Change the content of the meta tag named "color-scheme",
-    // and then set dark scheme preference in local storage
-    if (schemePref === 'auto')
-    {
-        colorScheme.setAttribute('content', 'light dark');
-        localStorage.setItem('usingDarkScheme', 'auto');
-    }
-    else if (schemePref === 'light')
+    // and then set the color scheme preference in local storage
+    if (schemePref === 'light')
     {
         colorScheme.setAttribute('content', 'light');
         localStorage.setItem('usingDarkScheme', 'false');
@@ -52,6 +47,11 @@ function toggleScheme(schemePref)
     {
         colorScheme.setAttribute('content', 'dark');
         localStorage.setItem('usingDarkScheme', 'true');
+    }
+    else // Default to automatic color scheme
+    {
+        colorScheme.setAttribute('content', 'light dark');
+        localStorage.setItem('usingDarkScheme', 'auto');
     }
 }
 
