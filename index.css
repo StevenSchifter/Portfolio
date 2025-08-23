@@ -2,7 +2,7 @@
 /* Site-wide styles */
 * {
     box-sizing: border-box;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    font-family: "Verdana", "Geneva", sans-serif;
 }
 /* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD 
 and
@@ -46,6 +46,8 @@ a {
     background-color: #0000ff;
     text-align: center;
     padding-inline: 2rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     margin-bottom: 3rem;
 }
 #main-header-text {
