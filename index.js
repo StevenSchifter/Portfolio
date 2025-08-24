@@ -3,6 +3,7 @@
 const today = new Date(); // Today's date
 const thisYear = today.getFullYear();
 const colorScheme = document.querySelector('meta[name="color-scheme"]');
+const schemeSelector = document.querySelector('#scheme-selector');
 
 // Write current year for copyright info
 function writeCurrentYear()
@@ -14,7 +15,6 @@ function writeCurrentYear()
 // Detect color scheme preference or OS light/dark mode setting
 function detectColorSchemePref()
 {
-    let schemeSelector = document.querySelector('#scheme-selector');
     let usingDarkScheme = localStorage.getItem('usingDarkScheme');
     
     // First check local storage for dark scheme preference,
@@ -22,17 +22,14 @@ function detectColorSchemePref()
     if (usingDarkScheme === 'true')
     {
         toggleScheme('dark');
-        schemeSelector.value = 'dark';
     }
     else if (usingDarkScheme === 'false')
     {
         toggleScheme('light');
-        schemeSelector.value = 'light';
     }
     else // Default to automatic color scheme
     {
         toggleScheme('auto');
-        schemeSelector.value = 'auto';
     }
 }
 
@@ -41,19 +38,22 @@ function toggleScheme(schemePref)
 {
     // Change the content of the meta tag named "color-scheme",
     // and then set the color scheme preference in local storage
-    if (schemePref === 'light')
-    {
-        colorScheme.setAttribute('content', 'light');
-        localStorage.setItem('usingDarkScheme', 'false');
-    }
-    else if (schemePref === 'dark')
+    if (schemePref === 'dark')
     {
         colorScheme.setAttribute('content', 'dark');
         localStorage.setItem('usingDarkScheme', 'true');
+        schemeSelector.value = 'dark';
+    }
+    else if (schemePref === 'light')
+    {
+        colorScheme.setAttribute('content', 'light');
+        localStorage.setItem('usingDarkScheme', 'false');
+        schemeSelector.value = 'light';
     }
     else if (schemePref === 'auto')
     {
         colorScheme.setAttribute('content', 'light dark');
         localStorage.setItem('usingDarkScheme', 'auto');
+        schemeSelector.value = 'auto';
     }
 }

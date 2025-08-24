@@ -37,18 +37,18 @@ function toggleScheme(schemePref)
 {
     // Change the content of the meta tag named "color-scheme",
     // and then set the color scheme preference in local storage
-    if (schemePref === 'light')
-    {
-        colorScheme.setAttribute('content', 'light');
-        localStorage.setItem('usingDarkScheme', 'false');
-        schemeSelector.value = 'dark';
-    }
-    else if (schemePref === 'dark')
+    if (schemePref === 'dark')
     {
         colorScheme.setAttribute('content', 'dark');
         localStorage.setItem('usingDarkScheme', 'true');
+        schemeSelector.value = 'dark';
+    }
+    else if (schemePref === 'light')
+    {
+        colorScheme.setAttribute('content', 'light');
+        localStorage.setItem('usingDarkScheme', 'false');
         schemeSelector.value = 'light';
-   }
+    }
     else if (schemePref === 'auto')
     {
         colorScheme.setAttribute('content', 'light dark');
