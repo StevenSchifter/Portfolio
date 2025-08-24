@@ -1,13 +1,13 @@
 'use strict';
 // Global constants
 const colorScheme = document.querySelector('meta[name="color-scheme"]');
+const schemeSelector = document.querySelector('#scheme-selector');
+const fontSelector = document.querySelector('#font-selector');
 
 // Detect preferences
 function detectPrefs()
 {
-    let schemeSelector = document.querySelector('#scheme-selector');
     let usingDarkScheme = localStorage.getItem('usingDarkScheme');
-    let fontSelector = document.querySelector('#font-selector');
     let fontPref = localStorage.getItem('fontPref');
     
     // First check local storage for preferences,
@@ -15,17 +15,14 @@ function detectPrefs()
     if (usingDarkScheme === 'true')
     {
         toggleScheme('dark');
-        schemeSelector.value = 'dark';
     }
     else if (usingDarkScheme === 'false')
     {
         toggleScheme('light');
-        schemeSelector.value = 'light';
     }
     else // Default to automatic color scheme
     {
         toggleScheme('auto');
-        schemeSelector.value = 'auto';
     }
 
     if (fontPref === 'null')
@@ -33,7 +30,6 @@ function detectPrefs()
         fontPref = 'default';
     }
     toggleFontFamily(fontPref);
-    fontSelector.value = fontPref;
 }
 
 // Switch between automatic, light, and dark schemes 
@@ -45,16 +41,19 @@ function toggleScheme(schemePref)
     {
         colorScheme.setAttribute('content', 'light');
         localStorage.setItem('usingDarkScheme', 'false');
+        schemeSelector.value = 'dark';
     }
     else if (schemePref === 'dark')
     {
         colorScheme.setAttribute('content', 'dark');
         localStorage.setItem('usingDarkScheme', 'true');
-    }
+        schemeSelector.value = 'light';
+   }
     else if (schemePref === 'auto')
     {
         colorScheme.setAttribute('content', 'light dark');
         localStorage.setItem('usingDarkScheme', 'auto');
+        schemeSelector.value = 'auto';
     }
 }
 
@@ -63,4 +62,5 @@ function toggleFontFamily(fontPref)
 {
     document.body.style.setProperty('--font-pref', fontPref === 'default' ? 'initial' : fontPref);
     localStorage.setItem('fontPref', fontPref);
+    fontSelector.value = fontPref;
 }
