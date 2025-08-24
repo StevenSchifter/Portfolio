@@ -15,8 +15,10 @@ body {
     background-color: var(--background-colors);
     margin: 0px;
 }
+main {
+    margin-top: 7rem;
+}
 .centered {
-    max-width: fit-content;
     margin-inline: auto;
     text-align: center;
 }
@@ -46,11 +48,10 @@ a {
 #main-header {
     color: #ffffff;
     background-color: #0000ff;
-    text-align: center;
-    padding-inline: 1.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 3rem;
+    padding: 0.5rem 1.5rem;
+    width: 100%;
+    position: fixed;
+    top: 0px;
 }
 #main-header-text {
     margin-top: 0px;
