@@ -3,14 +3,16 @@
 * {
     box-sizing: border-box;
     font-family: "Verdana", "Geneva", sans-serif;
+    --border-and-text-colors: light-dark(#000000, #f1f1f1);
+    --background-colors: light-dark(#d1d1d1, #1f1f1f);
 }
 /* Colors tested at https://webaim.org/resources/linkcontrastchecker/?fcolor=000000&bcolor=D1D1D1&lcolor=3333FD 
 and
 https://webaim.org/resources/linkcontrastchecker/?fcolor=F1F1F1&bcolor=1F1F1F&lcolor=0090E9
 */
 body {
-    color: light-dark(#000000, #f1f1f1);
-    background-color: light-dark(#d1d1d1, #1f1f1f);
+    color: var(--border-and-text-colors);
+    background-color: var(--background-colors);
     margin: 0px;
 }
 .centered {
@@ -40,14 +42,14 @@ a {
         color: light-dark(#006833, #009e00);
     }
 }
-/* Main header styles */
+/* Header styles */
 #main-header {
     color: #ffffff;
     background-color: #0000ff;
     text-align: center;
-    padding-inline: 2rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+    padding-inline: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     margin-bottom: 3rem;
 }
 #main-header-text {
@@ -58,15 +60,13 @@ a {
 table {
     border-collapse: collapse;
     border: none;
-    margin: 1rem auto;
+    margin: 2.5rem auto;
 }
 th, td {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 1rem;
+    padding: 0.5rem 0.5rem;
 }
 th {
-    border-bottom: 1px solid light-dark(#000000, #f1f1f1);
+    border-bottom: 1px solid var(--border-and-text-colors);
     font-style: italic;
     letter-spacing: 0.15rem;
     text-align: left;
